@@ -30,7 +30,7 @@ DEBUG = False
 
 def signal_handler(signal, frame):
 	print "\nClosing the program..."
-	sys.exit(0)
+#	sys.exit(0)
 
 
 def main():
