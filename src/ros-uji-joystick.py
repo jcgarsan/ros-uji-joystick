@@ -66,7 +66,7 @@ def main():
 	raw_input('Press "Enter" to continue...')
 
 	#Get the data, create the message and publish it
-	while not quitting:
+	while not quitting and not rospy.is_shutdown():
 		try:
 			pygame.event.get()
 
