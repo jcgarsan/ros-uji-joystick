@@ -26,7 +26,8 @@ pygame.init()
 pygame.joystick.init()
 
 #Debug flag: show human-readable data on terminal
-DEBUG = False
+DEBUG_COLUMN = False
+DEBUG_ARRAY  = True
 
 def signal_handler(signal, frame):
 	print "\nClosing the program..."
@@ -49,7 +50,7 @@ def main():
 	while joyId <= pygame.joystick.get_count() and not joyDetected:
 		if joystick.get_name() == "Logitech Logitech Extreme 3D":
 			joyDetected = True
-			print "Joystick detected"
+			print "Logitech Extreme 3D joystick detected"
 		else:
 			joyId += 1
 			joystick = pygame.joystick.Joystick(joyId)
@@ -72,18 +73,20 @@ def main():
 
 			for i in range(joyAxes):
 				joy_msg.axes[i] = joystick.get_axis(i)
-				if DEBUG:
+				if DEBUG_COLUMN:
 					print "Axis {} value: {:>6.3f}".format(i, joystick.get_axis(i))
 			for i in range(joyButtons):
 				joy_msg.buttons[i] = joystick.get_button(i)
-				if DEBUG:
+				if DEBUG_COLUMN:
 					print "Button {:>2} value: {}".format(i, joystick.get_button(i))
+			print "\n"
 
 			#Publish the data
 			joy_pub.publish(joy_msg)
 
-			if DEBUG:
-				clock.tick(20)
+			clock.tick(20)
+
+			if DEBUG_ARRAY:
 				print "Axes:"
 				print joy_msg.axes
 				print "Buttons:"
