@@ -47,20 +47,36 @@ def main():
 	#Search our joystick if there is more than one
 	joystick = pygame.joystick.Joystick(0)
 	joystick.init()
-	while joyId <= pygame.joystick.get_count() and not joyDetected:
-		if joystick.get_name() == "Logitech Logitech Extreme 3D":
-			joyDetected = True
-			print "Logitech Extreme 3D joystick detected"
-		else:
-			joyId += 1
-			joystick = pygame.joystick.Joystick(joyId)
-			joystick.init()
+
+	print "\nThere are " + str(pygame.joystick.get_count()) + " joysticks detected:"
+	for i in range(pygame.joystick.get_count()):
+		print str(i) + ") " + pygame.joystick.Joystick(i).get_name() 
+	joyId = input("Select the joystick ID: ")
+
+	while joyId > pygame.joystick.get_count():
+		joyId = input("Select the joystick ID: ")
+
+	joystick = pygame.joystick.Joystick(joyId)
+	joystick.init()
+
+
+#	while joyId <= pygame.joystick.get_count() and not joyDetected:
+#		if joystick.get_name() == "Logitech Logitech Extreme 3D":
+#			joyDetected = True
+#			print joystick.get_name() + "joystick detected"
+#		else:
+#			joyId += 1
+#			joystick = pygame.joystick.Joystick(joyId)
+#			joystick.init()
+
+
 
 	#Get the number of axes/numbers and initialize joy_msg
 	joyAxes = joystick.get_numaxes()
 	joyButtons = joystick.get_numbuttons()
 	joy_msg.axes = [0.0] * joyAxes
 	joy_msg.buttons = [0.0] * joyButtons
+	print "\nJoystick selected: " + pygame.joystick.Joystick(i).get_name() 
 	print "Number of axes: {}".format(joyAxes)
 	print "Number of buttons: {}".format(joyButtons)
 
