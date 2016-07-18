@@ -76,7 +76,7 @@ def main():
 	joyButtons = joystick.get_numbuttons()
 	joy_msg.axes = [0.0] * joyAxes
 	joy_msg.buttons = [0.0] * joyButtons
-	print "\nJoystick selected: " + pygame.joystick.Joystick(i).get_name() 
+	print "\nJoystick selected: " + pygame.joystick.Joystick(joyId).get_name() 
 	print "Number of axes: {}".format(joyAxes)
 	print "Number of buttons: {}".format(joyButtons)
 
