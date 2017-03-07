@@ -48,13 +48,16 @@ def main():
 	joystick = pygame.joystick.Joystick(0)
 	joystick.init()
 
-	print "\nThere are " + str(pygame.joystick.get_count()) + " joysticks detected:"
-	for i in range(pygame.joystick.get_count()):
-		print str(i) + ") " + pygame.joystick.Joystick(i).get_name() 
-	joyId = input("Select the joystick ID: ")
-
-	while joyId > pygame.joystick.get_count():
+	if pygame.joystick.get_count() == 1:
+		joyId = 0
+	else:
+		print "\nThere are " + str(pygame.joystick.get_count()) + " joysticks detected:"
+		for i in range(pygame.joystick.get_count()):
+			print str(i) + ") " + pygame.joystick.Joystick(i).get_name() 
 		joyId = input("Select the joystick ID: ")
+
+		while joyId > pygame.joystick.get_count():
+			joyId = input("Select the joystick ID: ")
 
 	joystick = pygame.joystick.Joystick(joyId)
 	joystick.init()
