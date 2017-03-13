@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros-uji-joystick)
+project(ros_uji_joystick)
 
 find_package(catkin REQUIRED
 	rospy
@@ -12,6 +12,6 @@ catkin_package(
 		sensor_msgs
 )
 
-install(PROGRAMS src/ros-uji-joystick.py
+install(PROGRAMS src/ros_uji_joystick.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

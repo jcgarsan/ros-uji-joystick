@@ -1,3 +1,3 @@
 ROS package to manage a joystick.
 
-Initially, configured for the Logitech Extrem 3D Pro.
+This package search any joystick or gamepad connected to the computer and generates a topic with all the axis and buttons info.

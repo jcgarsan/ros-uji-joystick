@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>ros-uji-joystick</name>
+  <name>ros_uji_joystick</name>
   <version>1.0.0</version>
   <description>Joystick generic driver for ROS.</description>
   <maintainer email="garciaju@uji.es">Juan Carlos Garcia</maintainer>
